@@ -13,16 +13,21 @@ nothing to install and nothing to run here.
 ```scheme
 {:name "text-tools"
  :description "Small helpers for titles and slugs"
+ :license "Apache-2.0"
  :git "https://github.com/collide2954/schematic-registry"
  :subdir "examples/text-tools"
  :versions {"0.1.0" {:tag "text-tools/0.1.0"}}}
 ```
 
 - `:git` is the repository to clone, and `:subdir` narrows it to one folder.
+- `:license` is an SPDX expression, such as `"MIT"` or `"MIT OR Apache-2.0"`.
+  A project can limit itself to an allowed list of licenses, and a package
+  without one is refused there, so say it here and in the package's own
+  `project.scm`.
 - Every version names a `:tag` or a `:commit`. Schematic records the exact
   commit it checked out, and a hash of the files, in the project's lock file.
 - A package is a project: a folder with a `project.scm` manifest and a `src`
-  folder of namespaces.
+  folder of namespaces. Its `:dependencies` come along when it is added.
 
 ## The index
 
