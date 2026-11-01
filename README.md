@@ -1,0 +1,31 @@
+# Schematic package registry
+
+The index of packages for [Schematic](https://github.com/collide2954/schematic).
+Each file in `packages/` describes one package: where its source lives and
+which versions exist. Schematic reads these files straight from this
+repository over HTTPS when a project asks for a package by name, so there is
+nothing to install and nothing to run here.
+
+## Package files
+
+`packages/<name>.scm` holds one map:
+
+```scheme
+{:name "text-tools"
+ :description "Small helpers for titles and slugs"
+ :git "https://github.com/collide2954/schematic-registry"
+ :subdir "examples/text-tools"
+ :versions {"0.1.0" {:tag "text-tools/0.1.0"}}}
+```
+
+- `:git` is the repository to clone, and `:subdir` narrows it to one folder.
+- Every version names a `:tag` or a `:commit`. Schematic records the exact
+  commit it checked out, and a hash of the files, in the project's lock file.
+- A package is a project: a folder with a `project.scm` manifest and a `src`
+  folder of namespaces.
+
+## Adding a package
+
+Open a pull request that adds `packages/<name>.scm`. Names use lowercase
+letters, digits, and hyphens, and match the `:name` in the package's own
+`project.scm`.
