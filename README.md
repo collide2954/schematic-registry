@@ -24,8 +24,15 @@ nothing to install and nothing to run here.
 - A package is a project: a folder with a `project.scm` manifest and a `src`
   folder of namespaces.
 
+## The index
+
+`index.scm` is a vector of every package name. The
+[packages page](https://collide2954.github.io/schematic/packages.html) on
+the Schematic website reads it, then each package file, so a package shows
+up there as soon as it is listed.
+
 ## Adding a package
 
-Open a pull request that adds `packages/<name>.scm`. Names use lowercase
-letters, digits, and hyphens, and match the `:name` in the package's own
-`project.scm`.
+Open a pull request that adds `packages/<name>.scm` and puts the name in
+`index.scm`. Names use lowercase letters, digits, and hyphens, and match the
+`:name` in the package's own `project.scm`.
